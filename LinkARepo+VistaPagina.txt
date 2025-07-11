@@ -1,0 +1,2 @@
+REPOSITORIO=https://github.com/NearDante/ProyectoFrontEnd
+VISTAPAGINA=https://neardante.github.io/ProyectoFrontEnd

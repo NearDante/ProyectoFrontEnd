@@ -7,6 +7,9 @@
   <title>Proyecto Flexbox Responsive para PreEntrega</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <meta name="description" content="Mi primera tienda online dinamica">
+  <meta name="keywords" content="ecommerce, tienda, productos, carrito">
+  <meta name="author" content="Ezequiel Dante Aruquipa Vargas">
 </head>
 
 <body>
@@ -20,6 +23,9 @@
         <li><a href="#contacto">Contacto</a></li>
       </ul>
     </nav>
+    <button id="carrito-contenedor" aria-label="Abrir carrito de compras" style="color: white; font-weight: bold; cursor: pointer;" >
+      🛒 Carrito: <span id="carrito-cantidad">0</span>
+    </button>
   </header>
 
   <main>
@@ -69,13 +75,16 @@
       <h2>Contacto</h2>
       <form action="https://formspree.io/f/mnndewwd" method="POST">
         <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required>
+        <input type="text" id="nombre" name="nombre" required aria-required="true">
+        <small class="error-message"></small>
 
         <label for="correo">Correo electrónico:</label>
-        <input type="email" id="correo" name="correo" required>
+        <input type="email" id="correo" name="correo" required aria-required="true">
+        <small class="error-message"></small>
 
         <label for="mensaje">Mensaje:</label>
-        <textarea id="mensaje" name="mensaje" required></textarea>
+        <textarea id="mensaje" name="mensaje" required aria-required="true"></textarea>
+        <small class="error-message"></small>
 
         <button type="submit">Enviar</button>
       </form>
@@ -85,10 +94,26 @@
       </video>
     </section>
   </main>
-
+  
+  <section id="carrito" style="display:none; position: fixed; top: 0; right: 0; width: 350px; height: 100vh; background: #fff; box-shadow: -3px 0 6px rgba(0,0,0,0.2); padding: 20px; overflow-y: auto; z-index: 9999;">
+  <h2>Carrito de Compras</h2>
+  <div id="carrito-items"></div>
+  <p><strong>Total: $<span id="carrito-total">0.00</span></strong></p>
+  <button id="vaciar-carrito" aria-label="Vaciar carrito de compras" style="background:#f44336; color:white; border:none; border-radius:4px; padding:8px 15px; cursor:pointer; margin-left:10px;">
+  Vaciar carrito
+  </button>
+  <button id="finalizar-compra" aria-label="Finalizar compras" style="margin-top: 10px; padding: 8px 15px; background:#2196F3; color:white; border:none; border-radius:4px; cursor:pointer;">
+  Finalizar compra
+  </button>  
+  <button id="cerrar-carrito" aria-label="Cerrar carrito de compras" style="margin-top:10px; padding: 8px 15px; background:#4CAF50; color:white; border:none; border-radius:4px; cursor:pointer;">Cerrar carrito</button>
+  
+  </section>
+  
   <footer>
     <p>&copy; 2025 PreEntrega Proyecto FrontEnd </p>
   </footer>
+  <script src="script.js"></script>
+  <div id="mensaje-carrito" aria-live="polite" style="position: fixed; top: 10px; right: 10px; background: #4CAF50; color: white; padding: 10px 20px; border-radius: 4px; display: none; z-index: 10000;"></div>
 </body>
 
 </html>
